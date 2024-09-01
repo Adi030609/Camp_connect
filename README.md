@@ -36,6 +36,10 @@ This project is a comprehensive web application designed to streamline schedule 
 ## Chatbot
 
 ![Screenshot 2024-09-02 003720](https://github.com/user-attachments/assets/9aed3067-7e4f-4748-966f-05b081cfe34b)
+## Attendance
+![Screenshot 2024-09-02 003740](https://github.com/user-attachments/assets/846c6099-d5ce-4fcd-9f59-1bc4e6c47e92)
+
 
 ## Timetable
 ![Screenshot 2024-09-02 003833](https://github.com/user-attachments/assets/541e43ed-676e-4c91-adc7-4e9d54c9947d)
+
