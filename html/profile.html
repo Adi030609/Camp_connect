@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-End Profile Page</title>
+    <link rel="stylesheet" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\css\profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <header>
+            <h1>Campus Connect</h1>
+        </header>
+        <div class="profile-card">
+            <div class="profile-photo">
+                <img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\adrian-swancar-_2NHZjSMLjA-unsplash.jpg" alt="Profile Photo">
+                <button class="upload-btn" id="changePhotoBtn">Change Profile Photo</button>
+            </div>
+            <div class="profile-info">
+                <h2>Jethalal Gada</h2>
+                <div class="info">
+                    <div class="info-section">
+                        <p><strong>Admission Number:</strong> 22scse13134</p>
+                        <p><strong>Application Number:</strong> UG22xxxxx</p>
+                        <p><strong>Father/Guardian Name:</strong> Champaklal</p>
+                        <p><strong>Fee Category:</strong> General</p>
+                        <p><strong>DOB:</strong> 09/01/2004</p>
+                        <p><strong>Gender:</strong> Male</p>
+                        <p><strong>Nationality:</strong> India</p>
+                        <p><strong>Religion:</strong> Jain</p>
+                    </div>
+                    <div class="info-section">
+                        <p><strong>Permanent Address:</strong> Gokul Dham Society</p>
+                        <p><strong>City:</strong> Mumbai</p>
+                        <p><strong>State:</strong> Maharashtra</p>
+                        <p><strong>Zip Code:</strong> 226012</p>
+                        <p><strong>Emergency Contact:</strong> 945281xxxx</p>
+                        <p><strong>Email:</strong> jethalal.travels@gmail.com</p>
+                        <p><strong>User ID:</strong> 22SCsexxxxxx</p>
+                    </div>
+                </div>
+                <button class="upload-btn" id="uploadDocumentsBtn">View/Upload Documents</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Change Profile Photo -->
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closePhotoModal">&times;</span>
+            <h2>Change Profile Photo</h2>
+            <form id="photoForm">
+                <input type="file" id="profilePhotoInput" accept="image/*">
+                <button type="submit" class="upload-btn">Upload Photo</button>
+            </form>
+            <div id="photoPreview"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Upload Documents -->
+    <div id="documentsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeDocumentsModal">&times;</span>
+            <h2>Upload Documents</h2>
+            <form id="documentsForm">
+                <input type="file" id="documentInput" multiple>
+                <button type="submit" class="upload-btn">Upload Documents</button>
+            </form>
+            <div id="documentsList"></div>
+        </div>
+    </div>
+
+    <script src="C:\Users\adity\OneDrive\Desktop\Camp_connect\js\profile.js"></script>
+</body>
+</html>

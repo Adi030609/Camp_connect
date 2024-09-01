@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-End Assignment</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+
+        .sidebar ul li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar ul li.active {
+            background-color: #1abc9c;
+        }
+
+        .sidebar ul li i {
+            font-size: 20px;
+        }
+
+        /* Main Content Styles */
+        .content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: white;
+        }
+
+        .content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.7);
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .course-overview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .course-card {
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 320px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            color: #2c3e50;
+            backdrop-filter: blur(10px);
+        }
+
+        .course-card h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .course-card p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .course-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://source.unsplash.com/400x300/?education');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-card::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://source.unsplash.com/50x50/?icon');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.8;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .course-card:hover::before {
+            opacity: 0.5;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .course-card {
+                width: 100%;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <ul>
+                <li class="active"><i class="fas fa-tachometer-alt"></i><a href="#" id="dashboard">Dashboard</a></li>
+                <li><i class="fas fa-book"></i><a href="#" id="courses">Courses</a></li>
+                <li><i class="fas fa-calendar-alt"></i><a href="#" id="calendar">Calendar</a></li>
+                <li><i class="fas fa-folder"></i><a href="#" id="files">Private Files</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <h1>Welcome to Your Course Dashboard</h1>
+            <div class="course-overview" id="course-overview">
+                <!-- Course cards will be dynamically generated here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalCourseName">Course Name</h2>
+            <p id="modalCourseTerm">Term: </p>
+            <p>This course will help you develop advanced skills and knowledge in your selected field.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sample course data with links
+            const courses = [
+                { name: 'Advanced Data Structures', term: 'Fall 2024-2025', link: 'C:/xampp/htdocs/signup/html/datastructure.html' },
+                { name: 'Communication Skills for Engineers', term: 'Winter 2022-23', link: '#' },
+                { name: 'Environmental Impact Analysis', term: 'Winter 2022-23', link: '#' },
+                { name: 'Internship Summer', term: 'Fall 2024-2025', link: '#' },
+                { name: 'System Design', term: 'Fall 2024-2025', link: '#' },
+                { name: 'Theory of Computation', term: 'Fall 2024-2025', link: '#' },
+                { name: 'Soft Computing and Applications', term: 'Fall 2024-2025', link: '#' }
+            ];
+    
+            const courseOverview = document.getElementById('course-overview');
+    
+            // Function to dynamically create course cards
+            const createCourseCard = (course) => {
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card';
+                courseCard.innerHTML = `
+                    <h3><a href="${course.link}" target="_blank">${course.name}</a></h3>
+                    <p>${course.term}</p>
+                `;
+                courseCard.addEventListener('click', () => {
+                    modalCourseName.textContent = course.name;
+                    modalCourseTerm.textContent = `Term: ${course.term}`;
+                    courseModal.style.display = 'block';
+                });
+                return courseCard;
+            };
+    
+            // Generate course cards and append to the overview
+            courses.forEach(course => {
+                courseOverview.appendChild(createCourseCard(course));
+            });
+    
+            // Sidebar navigation active state handling
+            const sidebarItems = document.querySelectorAll('.sidebar ul li');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', (event) => {
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                });
+            });
+    
+            // Modal close functionality
+            const closeModal = document.querySelector('.close');
+            const courseModal = document.getElementById('courseModal');
+            const modalCourseName = document.getElementById('modalCourseName');
+            const modalCourseTerm = document.getElementById('modalCourseTerm');
+    
+            closeModal.addEventListener('click', () => {
+                courseModal.style.display = 'none';
+            });
+    
+            window.onclick = (event) => {
+                if (event.target == courseModal) {
+                    courseModal.style.display = 'none';
+                }
+            };
+        });
+    </script>
+    
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

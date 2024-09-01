@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\css\attendance.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Educational Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\html\student.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\html\syllabus.html">Courses</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\html\attendance.html">Attendance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\html\profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="support.html">Support</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container my-5">
+      <h1 class="mb-4">Attendance Dashboard</h1>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="mb-4">Attendance Summary</h2>
+          <div class="card-deck mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Total Classes</h3>
+                <p class="card-text display-4">20</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Classes Attended</h3>
+                <p class="card-text display-4">15</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Classes Missed</h3>
+                <p class="card-text display-4">5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h2 class="mb-4">Attendance Pie Chart</h2>
+          <div class="card">
+            <div class="card-body">
+              <canvas id="attendance-pie-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="my-4">Attendance Records</h2>
+      <div class="card">
+        <div class="card-body">
+          <input type="text" id="filter-course" placeholder="Filter by Course" class="form-control mb-2">
+          <button id="filter-btn" class="btn btn-secondary mb-4">Filter</button>
+          <button id="download-btn" class="btn btn-primary mb-4">Download Attendance Records</button>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Course Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Introduction to Computer Science</td>
+                <td>2024-08-01</td>
+                <td><span class="badge badge-success">Present</span></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Data Structures and Algorithms</td>
+                <td>2024-08-02</td>
+                <td><span class="badge badge-danger">Absent</span></td>
+                <td>Sick leave</td>
+              </tr>
+              <tr>
+                <td>Web Development</td>
+                <td>2024-08-03</td>
+                <td><span class="badge badge-success">Present</span></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Machine Learning</td>
+                <td>2024-08-04</td>
+                <td><span class="badge badge-success">Present</span></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Database Systems</td>
+                <td>2024-08-05</td>
+                <td><span class="badge badge-danger">Absent</span></td>
+                <td>Family emergency</td>
+              </tr>
+              <!-- Add more attendance records here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer bg-primary text-white py-3">
+    <div class="container">
+      <span>&copy; 2024 Educational Portal</span>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+    // Chart.js setup for Pie Chart
+    const ctxPie = document.getElementById('attendance-pie-chart').getContext('2d');
+    const attendancePieChart = new Chart(ctxPie, {
+        type: 'pie',
+        data: {
+            labels: ['Classes Attended', 'Classes Missed'],
+            datasets: [{
+                label: 'Attendance Overview',
+                data: [15, 5], // Update these values based on actual data
+                backgroundColor: ['#28a745', '#dc3545'],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        }
+    });
+
+    // Download attendance records as CSV
+    document.getElementById('download-btn').addEventListener('click', function() {
+        const rows = [
+            ['Course Name', 'Date', 'Status', 'Comments'],
+            ['Introduction to Computer Science', '2024-08-01', 'Present', '-'],
+            ['Data Structures and Algorithms', '2024-08-02', 'Absent', 'Sick leave'],
+            ['Web Development', '2024-08-03', 'Present', '-'],
+            ['Machine Learning', '2024-08-04', 'Present', '-'],
+            ['Database Systems', '2024-08-05', 'Absent', 'Family emergency'],
+            // Add more records here
+        ];
+
+        let csvContent = "data:text/csv;charset=utf-8," 
+            + rows.map(e => e.join(",")).join("\n");
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "attendance_records.csv");
+        document.body.appendChild(link);
+        link.click();
+    });
+
+    // Filter attendance records
+    document.getElementById('filter-btn').addEventListener('click', function() {
+        const filterValue = document.getElementById('filter-course').value.toLowerCase();
+        const tableRows = document.querySelectorAll('.table tbody tr');
+
+        tableRows.forEach(row => {
+            const courseName = row.cells[0].textContent.toLowerCase();
+            if (courseName.includes(filterValue)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+  </script>
+</body>
+</html>

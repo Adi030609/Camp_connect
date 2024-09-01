@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\css\index.css" />
+    <title>Sign in & Sign up Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="#" class="sign-in-form" id="signInForm">
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" id="signInUsername" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="signInPassword" required />
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\twitter.png" alt="Twitter"></a>
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\instagram.png" alt="Instagram"></a>
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\google.png" alt="YouTube"></a>
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\linkedin.png" alt="LinkedIn"></a>
+                    </div>
+                </form>
+                <form action="#" class="sign-up-form" id="signUpForm">
+                    <h2 class="title">Sign up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" id="signUpUsername" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="signUpEmail" required />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="signUpPassword" required />
+                    </div>
+                    <input type="submit" class="btn" value="Sign up" />
+                    <p class="social-text">Or Sign up with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\twitter.png" alt="Twitter"></a>
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\instagram.png" alt="Instagram"></a>
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\google.png" alt="YouTube"></a>
+                        <a href="#" class="social-icon"><img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\linkedin.png" alt="LinkedIn"></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Welcome</h3>
+                    <p>The most beautiful thing about learning is that no one can take it away from you</p>
+                    <button class="btn transparent" id="sign-up-btn">Sign up</button>
+                </div>
+                <img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\logo.png" class="image" alt="Welcome Image" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>One of us?</h3>
+                    <p>Join our community and enhance your learning experience</p>
+                    <button class="btn transparent" id="sign-in-btn">Sign in</button>
+                </div>
+                <img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\logo.png" class="image" alt="Register Image" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Message -->
+    <div id="popupMessage" class="popup-message" style="display: none;">
+        <p id="popupText"></p>
+        <button id="closePopupButton" class="close-popup">Close</button> <!-- Single Close button -->
+    </div>
+
+    <script src="C:\Users\adity\OneDrive\Desktop\Camp_connect\js\index.js"></script>
+</body>
+</html>

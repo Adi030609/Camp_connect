@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Class Timetable</title>
+    <link rel="stylesheet" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\css\timetable.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="timetable-container">
+        <div class="timetable-header">
+            <h1>University Class Timetable</h1>
+            <p>Week: No.1 - No.20</p>
+            <button id="toggleViewBtn" class="toggle-view-btn">Switch to List View</button>
+        </div>
+        <div class="timetable" id="timetable">
+            <table class="grid-timetable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-slot"><div class="circle-time">8:30 - 10:00</div></td>
+                        <td class="class" data-class="College English">College English<br><span>Room 101</span></td>
+                        <td class="empty"></td>
+                        <td class="class" data-class="Python">Python<br><span>Room 202</span></td>
+                        <td class="empty"></td>
+                        <td class="class" data-class="Calculus">Calculus<br><span>Room 301</span></td>
+                        <td class="empty"></td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot"><div class="circle-time">10:00 - 11:30</div></td>
+                        <td class="class" data-class="Math">Math<br><span>Room 103</span></td>
+                        <td class="class" data-class="Economics">Economics<br><span>Room 302</span></td>
+                        <td class="empty"></td>
+                        <td class="class" data-class="Biology">Biology<br><span>Room 105</span></td>
+                        <td class="empty"></td>
+                        <td class="class" data-class="History">History<br><span>Room 104</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot"><div class="circle-time">11:30 - 1:00</div></td>
+                        <td class="class" data-class="Physics">Physics<br><span>Room 201</span></td>
+                        <td class="class" data-class="Chemistry">Chemistry<br><span>Room 303</span></td>
+                        <td class="class" data-class="Philosophy">Philosophy<br><span>Room 304</span></td>
+                        <td class="empty"></td>
+                        <td class="class" data-class="Literature">Literature<br><span>Room 102</span></td>
+                        <td class="empty"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="list-timetable" id="listTimetable" style="display: none;">
+                <h2>Class Schedule</h2>
+                <ul>
+                    <li>Monday: 
+                        <ul>
+                            <li>8:30 - 10:00: College English (Room 101)</li>
+                            <li>10:00 - 11:30: Math (Room 103)</li>
+                        </ul>
+                    </li>
+                    <li>Tuesday: 
+                        <ul>
+                            <li>8:30 - 10:00: Python (Room 202)</li>
+                            <li>10:00 - 11:30: Economics (Room 302)</li>
+                        </ul>
+                    </li>
+                    <li>Wednesday: 
+                        <ul>
+                            <li>10:00 - 11:30: Biology (Room 105)</li>
+                        </ul>
+                    </li>
+                    <li>Thursday: 
+                        <ul>
+                            <li>8:30 - 10:00: Calculus (Room 301)</li>
+                            <li>10:00 - 11:30: Philosophy (Room 304)</li>
+                        </ul>
+                    </li>
+                    <li>Friday: 
+                        <ul>
+                            <li>10:00 - 11:30: Literature (Room 102)</li>
+                        </ul>
+                    </li>
+                    <li>Saturday: 
+                        <ul>
+                            <li>10:00 - 11:30: History (Room 104)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="description">
+            <p>Description</p>
+        </div>
+    </div>
+
+    <script src="C:\Users\adity\OneDrive\Desktop\Camp_connect\js\timetable.js"></script>
+</body>
+</html>

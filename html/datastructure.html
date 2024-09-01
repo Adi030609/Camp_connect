@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Dashboard</title>
+    <style>
+        /* High-end background image styling with overlay */
+        body {
+            background-image: url('assignmentsub.jpg'); /* Relative path to background image */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative; /* Ensure overlay is positioned correctly */
+        }
+
+        /* Adding a dark overlay to the background to ensure text visibility */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+            z-index: 0; /* Ensure overlay is behind other content */
+        }
+
+        /* Header Styles */
+        header {
+            position: relative;
+            z-index: 1; /* Ensure header is above the overlay */
+        }
+
+        .header-container {
+            background-color: rgba(0, 140, 186, 0.9); /* Semi-transparent with higher opacity */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .header-container img {
+            width: 120px;
+            vertical-align: middle;
+        }
+
+        .header-container h1 {
+            display: inline-block;
+            font-size: 2.5em;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: rgba(0, 95, 138, 0.8); /* Semi-transparent with higher opacity */
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1; /* Ensure navbar is above the overlay */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: rgba(0, 140, 186, 0.9);
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.75); /* Slightly opaque white background */
+            border-radius: 15px;
+            max-width: 1200px; /* Increased the max-width */
+            width: 90%; /* Make it responsive */
+            margin: 40px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #004d66;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #004d66;
+            margin-bottom: 20px;
+            border-bottom: 5px solid #000202;
+            padding-bottom: 10px;
+        }
+
+        p, ul {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .form-background {
+            background-color: rgba(230, 247, 255, 0.9); /* Semi-transparent background for form */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #004d66;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button[type="submit"] {
+            background-color: #006699;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #004d66;
+        }
+
+        /* Footer Styles */
+        footer {
+            position: relative;
+            z-index: 1; /* Ensure footer is above the overlay */
+        }
+
+        .footer-container {
+            background-color: rgba(0, 95, 138, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-container p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            main {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            .navbar ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .navbar ul li a {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="header-container">
+            <img src="../logo.png" alt="Campus connect"> <!-- Updated relative path -->
+            <h1>Advanced Data Structures and Algorithms</h1>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#content">Course Content</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#assignments">Assignments</a></li>
+            <li><a href="#assessment">Internal Assessment</a></li>
+            <li><a href="#query">Query</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="content">
+            <h2>Course Content</h2>
+            <ul>
+                <li>Introduction to Advanced Data Structures</li>
+                <li>Trees and Graphs</li>
+                <li>Hashing Techniques</li>
+                <li>Dynamic Programming</li>
+                <li>Algorithm Analysis</li>
+            </ul>
+        </section>
+
+        <section id="roadmap">
+            <h2>Roadmap</h2>
+            <p>Week 1-2: Introduction and Basics</p>
+            <p>Week 3-4: Trees and Graphs</p>
+            <p>Week 5-6: Hashing Techniques</p>
+            <p>Week 7-8: Dynamic Programming</p>
+            <p>Week 9-10: Algorithm Analysis</p>
+        </section>
+
+        <section id="assignments">
+            <h2>Assignments</h2>
+            <ul>
+                <li>Assignment 1: Tree Traversal</li>
+                <li>Assignment 2: Graph Algorithms</li>
+                <li>Assignment 3: Hashing and Searching</li>
+            </ul>
+        </section>
+
+        <section id="assessment">
+            <h2>Internal Assessment</h2>
+            <p>Assessment 1: Mid-term exam covering the first half of the course content.</p>
+            <p>Assessment 2: Final exam covering the entire course content.</p>
+        </section>
+
+        <section id="query">
+            <h2>Query</h2>
+            <form class="form-background">
+                <label for="studentName">Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+
+                <label for="studentQuery">Query:</label>
+                <textarea id="studentQuery" name="studentQuery" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Galgotias University. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const studentName = document.getElementById('studentName').value;
+                const studentQuery = document.getElementById('studentQuery').value;
+
+                alert(`Thank you, ${studentName}. Your query has been submitted: ${studentQuery}`);
+
+                // Further logic for form submission like sending data to a server can be added here
+                form.reset(); // Optionally reset the form after submission
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 170, 255, 0.5), rgba(255, 0, 170, 0.5));
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.timetable-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.timetable-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timetable-header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #0073e6;
+    text-transform: uppercase;
+}
+
+.timetable-header p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.toggle-view-btn {
+    background-color: #0073e6; /* Button color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px; /* Space above the button */
+}
+
+.toggle-view-btn:hover {
+    background-color: #005bb5; /* Darker shade on hover */
+}
+
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.timetable th, .timetable td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.timetable th {
+    background-color: #f2f2f2;
+    font-size: 1.1em;
+}
+
+.time-slot {
+    width: 150px;
+}
+
+.circle-time {
+    background-color: #0073e6;
+    color: white;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 0.8em;
+}
+
+.class {
+    background-color: #eef7ff;
+    color: #333;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+.class:hover {
+    background-color: #d1e7ff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 115, 230, 0.2);
+}
+
+.class span {
+    font-size: 0.9em;
+    color: #0073e6;
+}
+
+.empty {
+    background-color: #f9f9f9;
+}
+
+.description {
+    background-color: #00aaff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* List View Styles */
+.list-timetable {
+    margin-top: 20px;
+}
+
+.list-timetable ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.list-timetable li {
+    margin: 10px 0; /* Space between items */
+}
+
+.list-timetable li ul {
+    margin-left: 20px; /* Indent nested list */
+}
+/* List View Styles */
+.list-timetable {
+    margin-top: 20px;
+    font-size: 1.1em; /* Increase font size for better readability */
+}
+
+.list-timetable h2 {
+    text-align: center;
+    color: #0073e6;
+    margin-bottom: 15px;
+    font-size: 2em;
+    text-transform: uppercase;
+}
+
+.list-timetable ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.list-timetable li {
+    margin: 15px 0; /* Increase space between items */
+    padding: 15px;
+    background-color: #eef7ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 115, 230, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-timetable li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 115, 230, 0.2);
+}
+
+.list-timetable li ul {
+    margin-left: 20px; /* Indent nested list */
+    margin-top: 10px; /* Space above nested list */
+    padding-left: 15px;
+    border-left: 3px solid #0073e6; /* Add a left border for a visual guide */
+}
+
+.list-timetable li ul li {
+    margin: 8px 0; /* Space between nested items */
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 115, 230, 0.1);
+}
+
+.list-timetable li ul li::before {
+    content: "\1F4C5"; /* Calendar icon */
+    margin-right: 10px;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.list-timetable li::before {
+    content: "\1F4D6"; /* Book icon */
+    font-size: 1.5em;
+    color: #0073e6;
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.list-timetable li ul li::before {
+    content: "\1F552"; /* Clock icon */
+    font-size: 1.2em;
+    color: #0073e6;
+    margin-right: 8px;
+    vertical-align: middle;
+}

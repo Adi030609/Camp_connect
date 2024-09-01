@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Card Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            color: #333;
+        }
+        header {
+            background-color: #00a8e8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.5s ease-in-out;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #00a8e8;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .select-container {
+            margin-bottom: 20px;
+        }
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+        select:focus {
+            outline: none;
+            border-color: #00a8e8;
+            box-shadow: 0 0 5px rgba(0, 168, 232, 0.5);
+        }
+        button {
+            background-color: #00a8e8;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        button:hover {
+            background-color: #0083b0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Educational Report Card</h1>
+</header>
+
+<main>
+    <h2>Select Your Report Card</h2>
+    
+    <form id="reportCardForm">
+        <label for="semester">Semester:</label>
+        <select id="semester" required>
+            <option value="" disabled selected>Select Semester</option>
+            <option value="Fall">Fall</option>
+            <option value="Spring">Spring</option>
+            <option value="Summer">Summer</option>
+        </select>
+
+        <label for="department">Department:</label>
+        <select id="department" required>
+            <option value="" disabled selected>Select Department</option>
+            <option value="Arts">Arts</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Science">Science</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Management">Management</option>
+            <option value="Health Sciences">Health Sciences</option>
+        </select>
+
+        <label for="course">Course:</label>
+        <select id="course" required>
+            <option value="" disabled selected>Select Course</option>
+            <!-- Courses will be populated based on department selection -->
+        </select>
+
+        <label for="year">Year:</label>
+        <select id="year" required>
+            <option value="" disabled selected>Select Year</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+        </select>
+
+        <button type="button" id="download-btn" disabled>Download Report Card</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2024 Educational Website. All rights reserved.</p>
+</footer>
+
+<script>
+    const departmentCourses = {
+        "Arts": [
+            "Bachelor of Arts (BA)", 
+            "Bachelor of Fine Arts (BFA)", 
+            "Bachelor of Design (B.Des)"
+        ],
+        "Commerce": [
+            "Bachelor of Commerce (B.Com)", 
+            "B.Com in Accounting", 
+            "B.Com in Marketing",
+            "B.Com in Finance",
+            "B.Com in E-Commerce"
+        ],
+        "Science": [
+            "Bachelor of Science (B.Sc)", 
+            "B.Sc in Mathematics", 
+            "B.Sc in Physics",
+            "B.Sc in Chemistry",
+            "B.Sc in Computer Science",
+            "B.Sc in Biotechnology"
+        ],
+        "Engineering": [
+            "Bachelor of Engineering (B.E)", 
+            "B.E in Civil Engineering",
+            "B.E in Mechanical Engineering",
+            "B.E in Electrical Engineering",
+            "B.E in Computer Science",
+            "B.Tech in Information Technology"
+        ],
+        "Management": [
+            "Bachelor of Business Administration (BBA)",
+            "BBA in International Business",
+            "BBA in Marketing",
+            "BBA in Human Resource Management"
+        ],
+        "Health Sciences": [
+            "Bachelor of Pharmacy (B.Pharm)",
+            "Bachelor of Nursing (B.Sc Nursing)",
+            "Bachelor of Physiotherapy (BPT)"
+        ],
+        "Additional Courses": [
+            "Diploma in Graphic Design",
+            "Certificate in Digital Marketing",
+            "MBA in Healthcare Management"
+        ]
+    };
+
+    const departmentSelect = document.getElementById('department');
+    const courseSelect = document.getElementById('course');
+    const downloadButton = document.getElementById('download-btn');
+    const reportCardForm = document.getElementById('reportCardForm');
+
+    departmentSelect.addEventListener('change', function() {
+        const selectedDepartment = this.value;
+        courseSelect.innerHTML = '<option value="" disabled selected>Select Course</option>'; // Reset course options
+
+        if (selectedDepartment) {
+            departmentCourses[selectedDepartment].forEach(course => {
+                const option = document.createElement('option');
+                option.value = course;
+                option.textContent = course;
+                courseSelect.appendChild(option);
+            });
+        }
+        toggleDownloadButton();
+    });
+
+    reportCardForm.addEventListener('change', toggleDownloadButton);
+
+    function toggleDownloadButton() {
+        const isComplete = [...reportCardForm.elements].every(select => select.value);
+        downloadButton.disabled = !isComplete;
+    }
+
+    downloadButton.addEventListener('click', function() {
+        const semester = document.getElementById('semester').value;
+        const course = document.getElementById('course').value;
+        const year = document.getElementById('year').value;
+        
+        // Simulate PDF download
+        alert(`Downloading report card for ${semester} - ${course} - ${year}`);
+        // Here you would typically trigger a PDF generation and download.
+    });
+</script>
+
+</body>
+</html>

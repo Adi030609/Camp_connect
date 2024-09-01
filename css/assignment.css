@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+.header-container {
+    background-color: #008cba; /* Background color */
+    color: white; /* Text color */
+    padding: 5px; /* Padding around the container */
+    text-align: center; /* Center the text */
+}
+
+.header-container img {
+    width: 80px; /* Set the desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.class-image {
+    width: 80%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Set a maximum width */
+    object-fit: cover; /* Ensure the image covers the area */
+}
+
+.logo {
+    width: 100px;
+}
+
+.navbar {
+    background-color: #005f8a;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar ul li a:hover {
+    background-color: #003f5c;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #005f8a;
+    border-bottom: 2px solid #005f8a;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+form {
+    background-color: #e6f7ff;
+    padding: 20px;
+    border: 1px solid #005f8a;
+    border-radius: 5px;
+    max-width: 600px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #005f8a;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #008cba;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005f8a;
+}
+
+.footer-container {
+    background-color: #005f8a;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}

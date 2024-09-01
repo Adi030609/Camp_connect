@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fee Report</title>
+    <link rel="stylesheet" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\css\fees.css">
+</head>
+<body>
+    <div class="fee-report-container">
+        <!-- User Info Section -->
+        <div class="user-info">
+            <img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\adrian-swancar-_2NHZjSMLjA-unsplash.jpg" alt="User Photo" class="profile-pic">
+            <div class="user-details">
+                <h2>Jethalal</h2>
+                <ul>
+                    <li><strong>Admission No:</strong> 1234567890</li>
+                    <li><strong>Course:</strong> B.Tech. AI & ML 2022-23 III Sem V</li>
+                    <li><strong>DOB:</strong> 01/01/2001</li>
+                    <li><strong>Program:</strong> Bachelor of Technology in Artificial Intelligence and Machine Learning</li>
+                    <li><strong>Application No:</strong> xxx543210</li>
+                    <li><strong>PRN:</strong> 20191xxx</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Fee Summary Section -->
+        <div class="fee-summary">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Academic</th>
+                        <th>Academic Miscellaneous</th>
+                        <th>Hostel</th>
+                        <th>Hostel Miscellaneous</th>
+                        <th>Transport</th>
+                        <th>Transport Miscellaneous</th>
+                        <th>Total Outstanding Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Fee Breakdown Section -->
+        <div class="fee-breakdown">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Session</th>
+                        <th>Fee Type</th>
+                        <th>Head Name</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample data - Repeat similar rows -->
+                    <tr>
+                        <td>1</td>
+                        <td>2022-2023</td>
+                        <td>Academic Fees</td>
+                        <td>Tuition Fee</td>
+                        <td>0</td>
+                    </tr>
+                    <!-- More rows here... -->
+                </tbody>
+            </table>
+        </div>
+        <!-- Receipts Section -->
+        <div class="receipts">
+            <div class="filters">
+                <label for="academicYear">Academic Year:</label>
+                <select id="academicYear">
+                    <option value="all">All</option>
+                    <option value="2023-2024">2023-2024</option>
+                    <option value="2022-2023">2022-2023</option>
+                    <!-- More options -->
+                </select>
+                <label for="module">Module:</label>
+                <select id="module">
+                    <option value="all">All</option>
+                    <option value="academic">Academic</option>
+                    <option value="hostel">Hostel</option>
+                    <!-- More options -->
+                </select>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Transaction Id</th>
+                        <th>Date of Deposit</th>
+                        <th>Transaction Type</th>
+                        <th>Amount</th>
+                        <th>Remarks</th>
+                        <th>Print Receipt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Sample data - Repeat similar rows -->
+                    <tr>
+                        <td>1</td>
+                        <td>192483</td>
+                        <td>23/08/2022</td>
+                        <td>Cash</td>
+                        <td>25000.00</td>
+                        <td>New Admission</td>
+                        <td><button onclick="printReceipt()">🖨️</button></td>
+                    </tr>
+                    <!-- More rows here... -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="C:\Users\adity\OneDrive\Desktop\Camp_connect\js\fees.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Information System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\css\collegeinfo.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\logo.png" alt="University Logo">
+        </div>
+        <h1>College Information System</h1>
+        <div class="user-info">
+            <span>Jethalal</span>
+            <img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\adrian-swancar-_2NHZjSMLjA-unsplash.jpg" alt="User Avatar">
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="#" onclick="showSection('home')">Home</a> > <span id="current-section">University Info</span>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <div id="home" class="section active">
+            <div class="card-container">
+                <div class="card" onclick="showSection('profile')">
+                    <div class="card-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Profile</h3>
+                </div>
+                <div class="card" onclick="showSection('structure')">
+                    <div class="card-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Structure</h3>
+                </div>
+                <div class="card" onclick="showSection('rooms')">
+                    <div class="card-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3>Rooms</h3>
+                </div>
+                <div class="card" onclick="showSection('departments')">
+                    <div class="card-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Departments</h3>
+                </div>
+                <div class="card" onclick="showSection('grades')">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Performance Grades</h3>
+                </div>
+                <div class="card" onclick="showSection('programme')">
+                    <div class="card-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Programme</h3>
+                </div>
+                <div class="card" onclick="showSection('registration')">
+                    <div class="card-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Registration</h3>
+                </div>
+                <div class="card" onclick="showSection('calendar')">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Calendar</h3>
+                </div>
+                <div class="card" onclick="showSection('certificates')">
+                    <div class="card-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certificates</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile" class="section">
+            <h2>Profile</h2>
+            <div class="profile-content">
+                <div class="profile-photo">
+                    <img src="C:\Users\adity\OneDrive\Desktop\Camp_connect\images\adrian-swancar-_2NHZjSMLjA-unsplash.jpg" alt="Profile Photo">
+                </div>
+                <div class="profile-details">
+                    <h3>Jethalal</h3>
+                    <p><strong>Student ID:</strong> 123456789</p>
+                    <p><strong>Email:</strong> jethalal@example.com</p>
+                    <p><strong>Phone:</strong> +91-1234567890</p>
+                    <p><strong>Address:</strong> 123, Main Street, City, Country</p>
+                    <button onclick="editProfile()">Edit Profile</button>
+                    <button onclick="viewAcademicHistory()">View Academic History</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Sections will follow the same structure... -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 University Name. All rights reserved.</p>
+    </footer>
+
+    <script src="C:\Users\adity\OneDrive\Desktop\Camp_connect\js\collegeinfo.js"></script>
+</body>
+
+</html>

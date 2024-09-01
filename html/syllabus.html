@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Syllabus</title>
+    <link rel="stylesheet" href="C:\Users\adity\OneDrive\Desktop\Camp_connect\css\syllabus.css">
+</head>
+<body>
+    <div class="syllabus-container">
+        <h1>Course Syllabus</h1>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'description')">Course Description</button>
+            <button class="tab-button" onclick="openTab(event, 'outcomes')">Learning Outcomes</button>
+            <button class="tab-button" onclick="openTab(event, 'schedule')">Schedule</button>
+            <button class="tab-button" onclick="openTab(event, 'assignments')">Assignments</button>
+        </div>
+        <div class="tab-content active" id="description">
+            <h2>Course Description</h2>
+            <p>This course provides an introduction to the fundamental concepts of soft computing techniques...</p>
+        </div>
+        <div class="tab-content" id="outcomes">
+            <h2>Learning Outcomes</h2>
+            <ul>
+                <li>Understand the principles of soft computing techniques...</li>
+                <li>Apply genetic algorithms to solve optimization problems...</li>
+                <li>Analyze the performance of different neural networks...</li>
+            </ul>
+        </div>
+        <div class="tab-content" id="schedule">
+            <h2>Schedule</h2>
+            <table>
+                <tr>
+                    <th>Week</th>
+                    <th>Topic</th>
+                    <th>Readings</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Introduction to Soft Computing</td>
+                    <td>Chapter 1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Neural Networks Basics</td>
+                    <td>Chapter 2, 3</td>
+                </tr>
+                <!-- More rows as needed -->
+            </table>
+        </div>
+        <div class="tab-content" id="assignments">
+            <h2>Assignments</h2>
+            <ul>
+                <li>Assignment 1: Implementing Neural Networks</li>
+                <li>Assignment 2: Genetic Algorithm Project</li>
+                <li>Assignment 3: Fuzzy Logic System Design</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="C:\Users\adity\OneDrive\Desktop\Camp_connect\js\syllabus.js"></script>
+</body>
+</html>
